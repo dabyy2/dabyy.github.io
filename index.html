@@ -173,16 +173,12 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="p-5">
-                        <a class="social-link" href="marcaderopa.000webhostapp.com"><h2 class="display-4">marketplace  para marca de ropa con usuarios registrados</h2></a>
+                        <a class="social-link" href="https://marcaderopa.000webhostapp.com"><h2 class="display-4">marketplace  para marca de ropa con usuarios registrados</h2></a>
                         <p>Nuestra página web de venta de ropa personalizada está desarrollada utilizando tecnologías avanzadas como JavaScript, CSS, HTML, SQL y PHP. Ofrecemos una experiencia de usuario intuitiva y segura, con una división de categorías de ropa y un sistema de filtros de búsqueda. Además, hemos implementado un sistema de inicio de sesión seguro para nuestros clientes y hemos asegurado una base de datos sólida y segura para el almacenamiento de información de los clientes. Nuestra página web es altamente escalable y personalizable, lo que permite fácil integración de nuevas características en el futuro.click en titulo para ver la demo o tambien mira el paquete de archivos en <a href="https://github.com/dabyy2/marketplace-login"><p>github.com</p></a></p></p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section>
-        
     </section>
     <section class="contact-us" id="contact">
         <div class="container">
@@ -190,36 +186,60 @@
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Contact us</h2>
                     <div class="line-shape"></div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat harum incidunt id quas, facere amet modi quisquam, voluptate ad dolores soluta molestias rerum excepturi delectus mollitia porro, adipisci eveniet qui!</p>
+                    <p>Hola  puedes utilizar este formulario de contacto en línea. Solo tienes que completar los campos requeridos y enviar tu mensaje. me pondre en contacto contigo lo antes posible.</p>
                 </div>
             </div>
         </div>
         <div class="container">
-            <form>
+            <form id="form" name="form" action="https://formspree.io/f/mnqywqyp" method="POST">
                 <div class="row">
                     <div class="col-md-6 form-line">
                         <div class="form-group">
                             <label for="exampleInputUsername">Your name</label>
-                            <input type="text" class="form-control" id="" placeholder=" Enter Name">
+                            <input name="name" type="text" class="form-control" id="" placeholder=" Enter Name">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail">Email Address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail" placeholder=" Enter Email id">
-                        </div>	
+                            <input name="email" type="email" class="form-control" id="exampleInputEmail" placeholder=" Enter Email id">
+                        </div>
                         <div class="form-group">
                             <label for="telephone">Mobile No.</label>
-                            <input type="tel" class="form-control" id="telephone" placeholder=" Enter 10-digit mobile no.">
+                            <input name="telefono" type="tel" class="form-control" id="telephone" placeholder=" Enter 10-digit mobile no.">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for ="description"> Message</label>
-                            <textarea  class="form-control" id="description" placeholder="Enter Your Message"></textarea>
+                            <label for="description"> Message</label>
+                            <textarea name="message" class="form-control" id="description" placeholder="Enter Your Message"></textarea>
                         </div>
-                        <button type="button" class="btn btn-primary submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Send Message</button>
-                    </div>        
+                        <button type="submit" class="btn btn-primary submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Send Message</button>
+                    </div>
                 </div>
+                <script>
+
+                    const $form = document.querySelector('#form')
+
+                    $form.addEventListener('submit', handleSubmit)
+                    async function handleSubmit(event) {
+                        event.preventDefault()
+                        const form =new FormData(this)
+                        const response=await fetch(this.action, {
+                            method: this.method,
+                            body: form,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        })
+                        if (response.ok) {
+                            this.reset()
+                            alert('gracias por contactarme, te escribire lo mas pronto posible')
+                        }
+
+                    }
+
+                </script>
             </form>
+            
         </div>
     </section>
     <br>
